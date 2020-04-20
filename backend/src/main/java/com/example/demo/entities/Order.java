@@ -18,4 +18,6 @@ public class Order {
     @Column(name = "product")
     private Product product;
 
+    public Order(){};
+
 }
