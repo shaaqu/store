@@ -19,7 +19,7 @@ public class AccountController {
     IAccountService iAccountService;
 
     /**
-     * Creating new account in Database.
+     * Creating new 'account' in Database.
      * @param account
      * @return status
      */
@@ -30,9 +30,9 @@ public class AccountController {
     }
 
     /**
-     * Listing all accounts from database.
+     * Listing all 'accounts' from database.
      * @param model
-     * @return all accounts from database
+     * @return all 'accounts' from database
      */
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public Iterable<Account> list(Model model){

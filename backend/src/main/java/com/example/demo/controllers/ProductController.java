@@ -21,23 +21,23 @@ public class ProductController {
     IProductService iProductService;
 
     /**
-     *
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/product", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Product> list(Model model) {
-        return iProductService.listAllProducts();
-    }
-
-    /**
-     *
+     * Creating new 'product' in database.
      * @param product
-     * @return
+     * @return status
      */
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public ResponseEntity<Product> create(@RequestBody @Valid @NotNull Product product) {
         iProductService.saveProduct(product);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    /**
+     *Listing all 'products' from database.
+     * @param model
+     * @return all 'products' from database
+     */
+    @RequestMapping(value = "/product", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Product> list(Model model) {
+        return iProductService.listAllProducts();
     }
 }

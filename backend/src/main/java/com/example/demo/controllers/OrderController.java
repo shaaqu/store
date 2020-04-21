@@ -19,9 +19,9 @@ public class OrderController {
     IOrderService iOrderService;
 
     /**
-     *Creating new
+     *Creating new 'order' in database.
      * @param order
-     * @return
+     * @return status
      */
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public ResponseEntity<Order> create(@RequestBody @Valid @NotNull Order order){
@@ -31,9 +31,9 @@ public class OrderController {
 
 
     /**
-     *
+     *Listing all 'orders' from database
      * @param model
-     * @return
+     * @return all 'orders' from database
      */
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public Iterable<Order> list(Model model){
