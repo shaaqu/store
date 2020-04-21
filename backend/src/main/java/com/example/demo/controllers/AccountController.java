@@ -19,7 +19,9 @@ public class AccountController {
     IAccountService iAccountService;
 
     /**
-     * Save new account to database.
+     * Creating new account in Database.
+     * @param account
+     * @return status
      */
     @RequestMapping(value = "/account", method = RequestMethod.POST)
     public ResponseEntity<Account> create(@RequestBody @Valid @NotNull Account account){
@@ -28,7 +30,9 @@ public class AccountController {
     }
 
     /**
-     * List all accounts.
+     * Listing all accounts from database.
+     * @param model
+     * @return all accounts from database
      */
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public Iterable<Account> list(Model model){

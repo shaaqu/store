@@ -19,18 +19,23 @@ public class OrderController {
     IOrderService iOrderService;
 
     /**
-     * Save new account to database.
+     *Creating new
+     * @param order
+     * @return
      */
-    @RequestMapping(value = "/account", method = RequestMethod.POST)
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
     public ResponseEntity<Order> create(@RequestBody @Valid @NotNull Order order){
         iOrderService.saveNewOrder(order);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+
     /**
-     * List all accounts.
+     *
+     * @param model
+     * @return
      */
-    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    @RequestMapping(value = "/order", method = RequestMethod.GET)
     public Iterable<Order> list(Model model){
         return iOrderService.listAllOrders();
     }
