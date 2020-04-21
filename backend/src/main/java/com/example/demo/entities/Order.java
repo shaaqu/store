@@ -1,6 +1,8 @@
 package com.example.demo.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "order")
@@ -16,7 +18,7 @@ public class Order {
 
     @OneToMany(mappedBy = "order") //domyslnie jest lazy(spoczko) (ladujacy tylko na żądanie)
     @Column(name = "product")
-    private Product product;
+    private Set<Product> product = new HashSet<Product>();
 
     public Order(){};
 
