@@ -12,12 +12,12 @@ public class Order {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "customer")
+    @JoinColumn(name = "account") //ZAPAMIETAJ: przy @ManyToOne nie uzywaj @Column tylko @JoinColumn
     @ManyToOne(fetch = FetchType.LAZY) //domyslnie jest eager (ładujacy ze wszystkimi polami), a chcemy lazy
     private Account account;
 
-    @OneToMany(mappedBy = "order") //domyslnie jest lazy(spoczko) (ladujacy tylko na żądanie)
-    @Column(name = "product")
+    @OneToMany(mappedBy = "product") //domyslnie jest lazy(spoczko) (ladujacy tylko na żądanie)
+    @Column(name = "products")
     private Set<Product> product = new HashSet<Product>();
 
     public Order(){};
