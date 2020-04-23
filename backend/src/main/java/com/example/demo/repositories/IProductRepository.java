@@ -9,5 +9,5 @@ public interface IProductRepository extends CrudRepository<Product, Integer>, Pa
 
     Product save(Product product);
 
-    Iterable<Product> listAll();
+    Iterable<Product> findAll();
 }

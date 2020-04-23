@@ -16,6 +16,6 @@ public class ProductServiceImpl implements IProductService{
     }
 
     public Iterable<Product> listAllProducts() {
-        return iProductRepository.listAll();
+        return iProductRepository.findAll();
     }
 }
