@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {Product} from '../moduls/product';
 
 
-const apiUrl: string = 'http://localhost:8080';
+const apiUrl = 'http://localhost:8080';
 
 @Injectable()
 export class ProductService {

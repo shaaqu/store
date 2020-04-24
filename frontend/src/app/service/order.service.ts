@@ -4,24 +4,24 @@ import {Observable} from 'rxjs';
 import {Order} from '../moduls/order';
 
 @Injectable()
-export class OrderService{
+export class OrderService {
   constructor(private http: HttpClient) { }
 
   getAllOrders(): Observable<any> {
     return this.http.get('http://localhost:8080/order');
   }
 
-  createNewOrder() {
+  createNewOrder(product: string, account: string) {
     const data = {
       product,
-      dane
+      account
     };
     const order = new Order(data);
     this.http.post('http://localhost:8080/order', order).subscribe(res => {
       console.log(res);
     });
-    // window.alert('New order has been added');
-    // window.location.reload(true);
+    console.log('New order has been added');
+    window.location.reload(true);
   }
 
 }
