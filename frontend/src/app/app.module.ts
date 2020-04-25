@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {StorePageComponent} from './store-page/store-page.component';
+import {AdminPageComponent} from './admin-page/admin-page.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'store-page', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    StorePageComponent
+    StorePageComponent,
+    AdminPageComponent
   ],
     imports: [
         BrowserModule,
