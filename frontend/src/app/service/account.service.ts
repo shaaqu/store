@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Account} from '../moduls/account';
+import {Account} from '../models/account';
 
 const apiUrl = 'http://localhost:8080';
 

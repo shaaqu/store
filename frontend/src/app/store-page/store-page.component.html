@@ -1,0 +1,10 @@
+<section class="intro">
+  <p>Sklep z cyferkami</p>
+</section>
+
+<section class="store">
+  <div class="tile" *ngFor="let product of productsItems">
+    <div class="name"> {{product.getName()}} </div>
+    <div class="price"> {{product.getPrice()}} </div>
+  </div>
+</section>
