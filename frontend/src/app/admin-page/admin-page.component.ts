@@ -113,6 +113,8 @@ export class AdminPageComponent implements OnInit {
       // tslint:disable-next-line:triple-equals
       const product = this.products.find(p => p.getName() == this.newProductName);
       if (account != null && product != null) {
+        // problem z account, jest wyciszony
+        // @ts-ignore
         this.orderService.createNewOrder(account, product);
       } else {
         window.alert('Wrong product or data');
