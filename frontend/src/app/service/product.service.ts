@@ -30,4 +30,7 @@ export class ProductService {
     window.location.reload(true);
   }
 
+  removeProduct(product: Product) {
+    return this.http.delete('{apiUrl}/product/' + product.getName());
+  }
 }

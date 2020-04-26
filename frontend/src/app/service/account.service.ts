@@ -11,7 +11,7 @@ export class AccountService {
   constructor(private http: HttpClient) {  }
 
   getAllAccounts(): Observable<any> {
-    return this.http.get('{apiUrl}/account');
+    return this.http.get(apiUrl + '/account');
   }
 
   createNewAccount(email: string, name: string, password: string) {
@@ -20,9 +20,13 @@ export class AccountService {
       name,
       password
     };
-    const dane = new Account(data);
-    this.http.post('{apiUrl}/account', dane).subscribe();
+    const account = new Account(data);
+    this.http.post(apiUrl + '/account', account).subscribe();
     console.log('New account has been added');
     window.location.reload(true);
+  }
+
+  removeAccount(account: Account) {
+    return this.http.delete(apiUrl + '/account/' + account.getEmail());
   }
 }
