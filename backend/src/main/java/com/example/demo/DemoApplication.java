@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.example.demo.controllers", "com.example.demo.entities", "com.example.demo.repositories", "com.example.demo.services"})
 @EnableJpaRepositories("com.example.demo.repositories")
 public class DemoApplication extends SpringBootServletInitializer {
 
