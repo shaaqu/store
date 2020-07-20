@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import javax.swing.*;
+import javax.validation.constraints.AssertTrue;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.matchers.JUnitMatchers.containsString;
@@ -24,11 +26,23 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     @Autowired
     MockMvc mockMvc;
 
+    @Autowired
+    IndexController indexController;
+
     @Test
-    public void indexTest() throws Exception {
+    public void indexTest(){
+        assertEquals(indexController.index(), "index");
+    }
+
+    @Test
+    public void indexTestContent() throws Exception {
         mockMvc.perform(get("/index"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("index")));
     }
 
 }
+
+/**
+ * Testujemy content strony, ale mozna tez testowac same metody.
+ */
