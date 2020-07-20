@@ -1,25 +1,26 @@
 package com.example.demo.controllers;
 
-import com.example.demo.services.IAccountService;
-import com.example.demo.services.IOrderService;
-import com.example.demo.services.IProductService;
+import com.example.demo.services.AccountServiceIf;
+import com.example.demo.services.OrderServiceIf;
+import com.example.demo.services.ProductServiceIf;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/")
 public class IndexController {
 
     @Autowired
-    private IProductService iProductService;
+    private ProductServiceIf productServiceIf;
 
     @Autowired
-    private IAccountService iAccountService;
+    private AccountServiceIf accountServiceIf;
 
     @Autowired
-    private IOrderService iOrderService;
+    private OrderServiceIf orderServiceIf;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     String index(){

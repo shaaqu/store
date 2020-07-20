@@ -20,4 +20,10 @@ public class Product {
     private int quantity;
 
     public Product(){};
+
+    public Product(String name, long price, int quantity){
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
 }

@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.Order;
-import com.example.demo.services.IOrderService;
+import com.example.demo.services.OrderServiceIf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class OrderController {
 
     @Autowired
-    IOrderService iOrderService;
+    OrderServiceIf orderServiceIf;
 
     /**
      *Creating new 'order' in database.
@@ -25,7 +25,7 @@ public class OrderController {
      */
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public ResponseEntity<Order> create(@RequestBody @Valid @NotNull Order order){
-        iOrderService.saveNewOrder(order);
+        orderServiceIf.saveNewOrder(order);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -37,6 +37,6 @@ public class OrderController {
      */
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public Iterable<Order> list(Model model){
-        return iOrderService.listAllOrders();
+        return orderServiceIf.listAllOrders();
     }
 }

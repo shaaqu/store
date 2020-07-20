@@ -1,0 +1,29 @@
+<header>
+  <p>Admin Page</p>
+</header>
+
+<body>
+<section class="product-list">
+  <div class="table">
+    <table class="product-table">
+      <tr>
+        <th>Nazwa produktu</th>
+        <th>Cena produktu</th>
+        <th>Ilość</th>
+      </tr>
+      <tr>
+        <td><input class="in" type="text" [(ngModel)]="newProductName"></td>
+        <td><input class="in" type="text" [(ngModel)]="newProductPrice"></td>
+        <td><input class="in" type="text" [(ngModel)]="newProductQuantity"></td>
+        <td><button class="add-but" (click)="createNewProduct()">Dodaj</button></td>
+      </tr>
+      <tr *ngFor="let product of productsItems">
+        <td>{{product.getName()}}</td>
+        <td>{{product.getPrice()}}</td>
+        <td>{{product.getQuantity()}}</td>
+        <td><button class="del-but" (click)="removePoduct(product)">Usun</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+</body>

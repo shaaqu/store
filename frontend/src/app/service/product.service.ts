@@ -13,7 +13,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getAllProducts(): Observable<any> {
-    return this.http.get('{apiUrl}/product');
+    return this.http.get(apiUrl + '/product');
   }
 
   createNewProduct(name: string, price: number, quantity: number) {
@@ -23,7 +23,8 @@ export class ProductService {
       quantity
     };
     const product = new Product(data);
-    return this.http.post('{apiUrl}/product', product).subscribe(res => {
+    return this.http.post(apiUrl + '/product', product).subscribe(res => {
+      console.log('x')
       console.log(res);
     });
     console.log('New product has been added');
