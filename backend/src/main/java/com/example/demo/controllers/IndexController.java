@@ -22,7 +22,7 @@ public class IndexController {
     @Autowired
     private OrderServiceIf orderServiceIf;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     String index(){
         return "index";
     }
