@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
- class IndexControllerTest {
+class IndexControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -42,7 +42,3 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     }
 
 }
-
-/**
- * Testujemy content strony, ale mozna tez testowac same metody.
- */

@@ -16,9 +16,17 @@ public class Account {
     @Column(name = "password")
     private String password;
 
-    public Account(String email, String name, String password) {
+    public Account() {}
+
+    public void setEmail(String email) {
         this.email = email;
-        this. name = name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
 }

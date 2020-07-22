@@ -1,8 +1,8 @@
 package com.example.demo.entities;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "orderss")
@@ -18,7 +18,7 @@ public class Order {
 
     @JoinColumn(name = "product")
     @OneToMany //domyslnie jest lazy(spoczko) (ladujacy tylko na żądanie)
-    private Set<Product> product = new HashSet<Product>();
+    private List<Product> product = new ArrayList<Product>();
 
     public Order(){};
 
