@@ -15,9 +15,12 @@ import javax.validation.constraints.NotNull;
 @RestController
 public class AccountController {
 
-    @Autowired
-    AccountServiceIf accountServiceIf;
+    private final AccountServiceIf accountServiceIf;
 
+    @Autowired
+    public AccountController(AccountServiceIf accountServiceIf){
+        this.accountServiceIf = accountServiceIf;
+    }
 
     @RequestMapping(value = "/account", method = RequestMethod.POST)
     public ResponseEntity<Account> create(@RequestBody @Valid @NotNull Account account){
