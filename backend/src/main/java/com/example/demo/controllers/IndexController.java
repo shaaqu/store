@@ -12,16 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 public class IndexController {
-
-    @Autowired
-    private ProductServiceIf productServiceIf;
-
-    @Autowired
-    private AccountServiceIf accountServiceIf;
-
-    @Autowired
-    private OrderServiceIf orderServiceIf;
-
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     String index(){
         return "index";

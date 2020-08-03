@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.AccountItemRequestBuilder;
 import com.example.demo.services.AccountServiceIf;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -28,6 +29,13 @@ class AccountControllerTest {
                 .setLocaleResolver(fixedLocaleResolver())
                 .build();
 
+        requestBuilder = new AccountItemRequestBuilder(mockMvc);
+    }
+
+    @Test
+    void createTest(){
+
+        requestBuilder.perform()
     }
 
 }
