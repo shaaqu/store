@@ -2,7 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.AccountItemRequestBuilder;
 import com.example.demo.services.AccountServiceIf;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static com.example.demo.WebTestConfig.exceptionResolver;
 import static com.example.demo.WebTestConfig.fixedLocaleResolver;
 import static org.mockito.Mockito.mock;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 class AccountControllerTest {
@@ -33,9 +34,13 @@ class AccountControllerTest {
     }
 
     @Test
-    void createTest(){
+    public void createTest() throws Exception {
+        requestBuilder.createAccountTest().andExpect(status().isOk());
+    }
 
-        requestBuilder.perform()
+    @Test
+    public void listTest() throws Exception {
+
     }
 
 }
