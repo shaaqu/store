@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.AccountItemRequestBuilder;
 import com.example.demo.services.AccountServiceIf;
+import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
@@ -21,7 +22,7 @@ class AccountControllerTest {
     private AccountServiceIf service;
 
     @BeforeEach
-    void configureSystemUnderTest(){
+    void configureSystemUnderTest() throws JSONException {
         service = mock(AccountServiceIf.class);
         AccountController accountController = new AccountController(service);
         MockMvc mockMvc = MockMvcBuilders
@@ -35,12 +36,12 @@ class AccountControllerTest {
 
     @Test
     public void createTest() throws Exception {
-        requestBuilder.createAccountTest().andExpect(status().isOk());
+        requestBuilder.createAccountTest().andExpect(status().isCreated());
     }
 
     @Test
-    public void listTest() throws Exception {
-
+    public void listAllTest() throws Exception {
+        requestBuilder.listAllTest().andExpect(status().isOk());
     }
 
 }
