@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.Product;
-import com.example.demo.repositories.ProductRepositoryIf;
+import com.example.demo.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 public class ProductServiceIfImpl implements ProductServiceIf {
 
     @Autowired
-    ProductRepositoryIf productRepositoryIf;
+    ProductRepository productRepository;
 
     public Product saveProduct(Product product) {
-        return productRepositoryIf.save(product);
+        return productRepository.save(product);
     }
 
     public Iterable<Product> listAllProducts() {
-        return productRepositoryIf.findAll();
+        return productRepository.findAll();
     }
 }
