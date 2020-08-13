@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.Account;
-import com.example.demo.services.AccountService;
+import com.example.demo.services.AcountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +15,10 @@ import javax.validation.constraints.NotNull;
 @RestController
 public class AccountController {
 
-    private final AccountService accountService;
+    private final AcountService accountService;
 
     @Autowired
-    public AccountController(AccountService accountService){
+    public AccountController(AcountService accountService){
         this.accountService = accountService;
     }
 
