@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.Account;
-import com.example.demo.services.AccountServiceIf;
+import com.example.demo.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,16 +15,16 @@ import javax.validation.constraints.NotNull;
 @RestController
 public class AccountController {
 
-    private final AccountServiceIf accountServiceIf;
+    private final AccountService accountService;
 
     @Autowired
-    public AccountController(AccountServiceIf accountServiceIf){
-        this.accountServiceIf = accountServiceIf;
+    public AccountController(AccountService accountService){
+        this.accountService = accountService;
     }
 
     @RequestMapping(value = "/account", method = RequestMethod.POST)
     public ResponseEntity<Account> create(@RequestBody @Valid @NotNull Account account){
-        accountServiceIf.saveNewAccount(account);
+        accountService.saveNewAccount(account);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -35,6 +35,6 @@ public class AccountController {
      */
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public Iterable<Account> list(Model model){
-        return accountServiceIf.listAllAccounts();
+        return accountService.listAllAccounts();
     }
 }

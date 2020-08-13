@@ -4,7 +4,7 @@ import com.example.demo.entities.Account;
 import org.springframework.stereotype.Service;
 
 
-public interface AccountServiceIf {
+public interface AccountService {
 
     Account saveNewAccount(Account account);
 

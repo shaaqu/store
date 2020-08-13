@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.AccountItemRequestBuilder;
-import com.example.demo.services.AccountServiceIf;
+import com.example.demo.services.AccountService;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,11 +19,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class AccountControllerTest {
 
     private AccountItemRequestBuilder requestBuilder;
-    private AccountServiceIf service;
+    private AccountService service;
 
     @BeforeEach
     void configureSystemUnderTest() throws JSONException {
-        service = mock(AccountServiceIf.class);
+        service = mock(AccountService.class);
         AccountController accountController = new AccountController(service);
         MockMvc mockMvc = MockMvcBuilders
                 .standaloneSetup(accountController)

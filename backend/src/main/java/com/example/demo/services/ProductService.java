@@ -4,7 +4,7 @@ import com.example.demo.entities.Product;
 import org.springframework.stereotype.Service;
 
 
-public interface ProductServiceIf {
+public interface ProductService {
 
     Product saveProduct(Product product);
 
