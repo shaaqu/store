@@ -1,4 +1,5 @@
-import com.example.demo.entities.Account;
+package com.example.demo;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
