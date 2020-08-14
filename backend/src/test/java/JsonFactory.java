@@ -18,7 +18,15 @@ public class JsonFactory{
                         .put("password", "psswd")
                         .toString();
             case ORDER:
+                return new JSONObject().toString();
+            case PRODUCT:
                 return new JSONObject()
+                        .put("name", "test")
+                        .put("price", 20.00)
+                        .put("quantity", 5)
+                        .toString();
+            default:
+                throw new IllegalArgumentException("Unknown JSON type.");
 
         }
     }
