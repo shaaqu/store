@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static com.example.demo.WebTestConfig.exceptionResolver;
 import static com.example.demo.WebTestConfig.fixedLocaleResolver;
 import static org.mockito.Mockito.mock;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 class AccountControllerTest {
@@ -35,13 +35,18 @@ class AccountControllerTest {
     }
 
     @Test
-    public void createTest() throws Exception {
-        requestBuilder.createAccountTest().andExpect(status().isCreated());
+    public void shouldReturnCreatedStatus() throws Exception {
+        requestBuilder.postAccount().andExpect(
+                status().isCreated()
+        );
     }
 
     @Test
-    public void listAllTest() throws Exception {
-        requestBuilder.listAllTest().andExpect(status().isOk());
+    public void httpGetTest() throws Exception {
+        requestBuilder.getAccount().andExpect(status().isOk())
+                .andExpect(
+                        content().json()
+                );
     }
 
 }
