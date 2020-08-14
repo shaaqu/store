@@ -6,13 +6,18 @@ import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultHandler;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static com.example.demo.JsonFactory.JsonEnum.*;
+import static com.example.demo.JsonFactory.jsonFactory;
 import static com.example.demo.WebTestConfig.exceptionResolver;
 import static com.example.demo.WebTestConfig.fixedLocaleResolver;
 import static org.mockito.Mockito.mock;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -42,12 +47,14 @@ class AccountControllerTest {
     }
 
     @Test
-    public void httpGetTest() throws Exception {
+    public void shouldReturnOkStatusAndJSONType() throws Exception {
         requestBuilder.getAccount().andExpect(status().isOk())
                 .andExpect(
-                        content().json()
+                        content().contentType(MediaType.APPLICATION_JSON)
                 );
     }
+
+
 
 }
 
