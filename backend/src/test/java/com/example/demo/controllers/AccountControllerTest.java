@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.AccountItemItemRequestBuilder;
 import com.example.demo.ItemRequestBuilder;
 import com.example.demo.ItemRequestBuilderFactory;
+import com.example.demo.JsonFactory;
 import com.example.demo.services.AcountService;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
@@ -14,7 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static com.example.demo.ItemRequestBuilderFactory.Items.ACCOUNT_ITEM;
-import static com.example.demo.ItemRequestBuilderFactory.createRequestBuilder;
+import static com.example.demo.JsonFactory.jsonFactory;
 import static com.example.demo.WebTestConfig.exceptionResolver;
 import static com.example.demo.WebTestConfig.fixedLocaleResolver;
 import static org.mockito.Mockito.mock;
@@ -26,6 +27,7 @@ class AccountControllerTest {
 
     private ItemRequestBuilder itemRequestBuilder;
     private AcountService service;
+    private ItemRequestBuilderFactory itemRequestBuilderFactory;
 
     @BeforeEach
     void configureSystemUnderTest() throws JSONException {
@@ -36,9 +38,9 @@ class AccountControllerTest {
                 .setHandlerExceptionResolvers(exceptionResolver())
                 .setLocaleResolver(fixedLocaleResolver())
                 .build();
-
-        itemRequestBuilder = createRequestBuilder(ACCOUNT_ITEM);
-        itemRequestBuilder.
+        itemRequestBuilderFactory = new ItemRequestBuilderFactory(mockMvc);
+        //itemRequestBuilder = itemRequestBuilderFactory.createRequestBuilder(ACCOUNT_ITEM);
+        itemRequestBuilder = new AccountItemItemRequestBuilder(mockMvc);
 
     }
 
