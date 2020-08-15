@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "account")
@@ -16,7 +17,15 @@ public class Account {
     @Column(name = "password")
     private String password;
 
-    public Account() {}
+    @Column(name = "orderss")
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Order> orders;
+
+    public Account(String email, String name, String password) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -28,5 +37,9 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void addOrder(Order order){
+        orders.add(order);
     }
 }

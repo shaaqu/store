@@ -16,9 +16,11 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY) //domyslnie jest eager (ładujacy ze wszystkimi polami), a chcemy lazy
     private Account account;
 
-    @JoinColumn(name = "product")
-    @OneToMany //domyslnie jest lazy(spoczko) (ladujacy tylko na żądanie)
-    private List<Product> product = new ArrayList<Product>();
+    @Column(name = "productId")
+    private int productId;
+
+    @Column(name = "productQuantity")
+    private int productQuantity;
 
     public Order(){};
 
