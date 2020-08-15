@@ -5,6 +5,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 public interface ItemRequestBuilder {
 
+    void setMockMvc();
     ResultActions postItem() throws Exception;
     ResultActions getItem() throws Exception;
 

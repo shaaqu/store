@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.AccountItemItemRequestBuilder;
 import com.example.demo.ItemRequestBuilder;
+import com.example.demo.ItemRequestBuilderFactory;
 import com.example.demo.services.AcountService;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static com.example.demo.ItemRequestBuilderFactory.Items.ACCOUNT_ITEM;
+import static com.example.demo.ItemRequestBuilderFactory.createRequestBuilder;
 import static com.example.demo.WebTestConfig.exceptionResolver;
 import static com.example.demo.WebTestConfig.fixedLocaleResolver;
 import static org.mockito.Mockito.mock;
@@ -34,7 +37,8 @@ class AccountControllerTest {
                 .setLocaleResolver(fixedLocaleResolver())
                 .build();
 
-        itemRequestBuilder = new AccountItemItemRequestBuilder();
+        itemRequestBuilder = createRequestBuilder(ACCOUNT_ITEM);
+        itemRequestBuilder.
 
     }
 
