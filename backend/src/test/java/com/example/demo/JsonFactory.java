@@ -19,7 +19,11 @@ public class JsonFactory{
                         .put("password", "psswd")
                         .toString();
             case ORDER:
-                return new JSONObject().toString();
+                return new JSONObject()
+                        .put("account", jsonFactory(JsonEnum.ACCOUNT))
+                        .put("productId", 1)
+                        .put("productQuantity", 1)
+                        .toString();
             case PRODUCT:
                 return new JSONObject()
                         .put("name", "test")
