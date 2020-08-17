@@ -39,20 +39,19 @@ class AccountControllerTest {
                 .setLocaleResolver(fixedLocaleResolver())
                 .build();
         itemRequestBuilderFactory = new ItemRequestBuilderFactory(mockMvc);
-        //itemRequestBuilder = itemRequestBuilderFactory.createRequestBuilder(ACCOUNT_ITEM);
-        itemRequestBuilder = new AccountItemItemRequestBuilder(mockMvc);
+        itemRequestBuilder = itemRequestBuilderFactory.createRequestBuilder(ACCOUNT_ITEM);
 
     }
 
     @Test
-    public void shouldReturnCreatedStatus() throws Exception {
+    public void postItemTest() throws Exception {
         itemRequestBuilder.postItem().andExpect(
                 status().isCreated()
         );
     }
 
     @Test
-    public void shouldReturnOkStatusAndJSONType() throws Exception {
+    public void getItemTest() throws Exception {
         itemRequestBuilder.getItem().andExpect(status().isOk())
                 .andExpect(
                         content().contentType(MediaType.APPLICATION_JSON)

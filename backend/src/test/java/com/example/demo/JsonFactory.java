@@ -1,9 +1,15 @@
 package com.example.demo;
 
+import com.example.demo.entities.Order;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class JsonFactory{
+    private static List<Order> orders = new LinkedList<Order>();
+
     public enum JsonEnum {
         ACCOUNT,
         PRODUCT,
@@ -17,6 +23,7 @@ public class JsonFactory{
                         .put("email", "mail@test.com")
                         .put("name", "Test")
                         .put("password", "psswd")
+                        .put("orderss",  orders)
                         .toString();
             case ORDER:
                 return new JSONObject()

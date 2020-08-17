@@ -17,8 +17,12 @@ import javax.validation.constraints.NotNull;
 @RestController
 public class ProductController {
 
-    @Autowired
     ProductService productService;
+
+    @Autowired
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     /**
      * Creating new 'product' in database.
