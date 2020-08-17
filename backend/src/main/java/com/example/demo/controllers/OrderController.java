@@ -15,8 +15,12 @@ import javax.validation.constraints.NotNull;
 @RestController
 public class OrderController {
 
-    @Autowired
     OrderService orderService;
+
+    @Autowired
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     /**
      *Creating new 'order' in database.
