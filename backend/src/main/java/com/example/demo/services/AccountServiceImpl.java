@@ -18,4 +18,9 @@ public class AccountServiceImpl implements AcountService {
     public Iterable<Account> listAllAccounts() {
         return accountRepository.findAll();
     }
+
+    @Override
+    public Account listAccount(String email) {
+        return accountRepository.getAccountByEmail(email);
+    }
 }

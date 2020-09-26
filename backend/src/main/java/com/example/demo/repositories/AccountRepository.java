@@ -11,4 +11,6 @@ public interface AccountRepository extends CrudRepository<Account, String>, Pagi
     Account save(Account account);
 
     Iterable<Account> findAll();
+
+    Account getAccountByEmail(String email);
 }

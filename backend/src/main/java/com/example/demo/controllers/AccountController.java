@@ -28,13 +28,13 @@ public class AccountController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    /**
-     * Listing all 'accounts' from database.
-     * @param model
-     * @return all 'accounts' from database
-     */
     @RequestMapping(value = "/account", method = RequestMethod.GET)
-    public Iterable<Account> list(Model model){
+    public Iterable<Account> listAccounts(Model model){
         return accountService.listAllAccounts();
+    }
+
+    @RequestMapping(value = "/account/{email}", method = RequestMethod.GET)
+    public Account listAccount(@PathVariable String email) {
+        return accountService.listAccount(email);
     }
 }

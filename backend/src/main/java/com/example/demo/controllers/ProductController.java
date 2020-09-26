@@ -24,22 +24,12 @@ public class ProductController {
         this.productService = productService;
     }
 
-    /**
-     * Creating new 'product' in database.
-     * @param product
-     * @return status
-     */
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public ResponseEntity<Product> create(@RequestBody @Valid @NotNull Product product) {
         productService.saveProduct(product);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    /**
-     *Listing all 'products' from database.
-     * @param model
-     * @return all 'products' from database
-     */
     @RequestMapping(value = "/product", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Product> list(Model model) {
         return productService.listAllProducts();

@@ -10,4 +10,5 @@ public interface AcountService {
 
     Iterable<Account> listAllAccounts();
 
+    Account listAccount(String email);
 }

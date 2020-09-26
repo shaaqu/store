@@ -22,11 +22,6 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    /**
-     *Creating new 'order' in database.
-     * @param order
-     * @return status
-     */
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public ResponseEntity<Order> create(@RequestBody @Valid @NotNull Order order){
         orderService.saveNewOrder(order);
@@ -34,11 +29,6 @@ public class OrderController {
     }
 
 
-    /**
-     *Listing all 'orders' from database
-     * @param model
-     * @return all 'orders' from database
-     */
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     public Iterable<Order> list(Model model){
         return orderService.listAllOrders();

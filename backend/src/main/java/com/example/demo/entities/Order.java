@@ -12,8 +12,8 @@ public class Order {
     @Column(name = "id")
     private int id;
 
-    @JoinColumn(name = "account") //ZAPAMIETAJ: przy @ManyToOne nie uzywaj @Column tylko @JoinColumn
-    @ManyToOne(fetch = FetchType.LAZY) //domyslnie jest eager (ładujacy ze wszystkimi polami), a chcemy lazy
+    @JoinColumn(name = "account")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Account account;
 
     @Column(name = "productId")
