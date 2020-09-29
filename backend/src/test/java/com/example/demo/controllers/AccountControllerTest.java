@@ -47,7 +47,7 @@ class AccountControllerTest {
 
 
     @Test
-    @Disabled("I don't know what is going on. Others postItemTests works!")
+    @Disabled("Others postItemTests works.")
     public void postItemTest() throws Exception {
         itemRequestBuilder.postItem().andExpect(
                 status().isCreated()
@@ -65,7 +65,3 @@ class AccountControllerTest {
 
 
 }
-
-/**
- * Why if test class is public there is initializationError "java.lang.Exception: No runnable methods"?
- */
