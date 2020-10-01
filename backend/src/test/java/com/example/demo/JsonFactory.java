@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class JsonFactory{
-    private static List<Order> orders = new LinkedList<Order>();
 
     public enum JsonEnum {
         ACCOUNT,
@@ -23,7 +22,7 @@ public class JsonFactory{
                         .put("email", "mail@test.com")
                         .put("name", "Test")
                         .put("password", "psswd")
-                        .put("orderss",  orders)
+                        .put("orderss", jsonFactory(JsonEnum.ORDER))
                         .toString();
             case ORDER:
                 return new JSONObject()

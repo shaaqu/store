@@ -47,7 +47,6 @@ class AccountControllerTest {
 
 
     @Test
-    @Disabled("Others postItemTests works.")
     public void postItemTest() throws Exception {
         itemRequestBuilder.postItem().andExpect(
                 status().isCreated()
