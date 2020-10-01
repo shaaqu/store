@@ -17,7 +17,6 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Column(name = "account")
     @ManyToOne
     @JoinColumn(name = "email", nullable = false)
     private Account account;
