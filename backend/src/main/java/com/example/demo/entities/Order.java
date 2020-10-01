@@ -10,23 +10,29 @@ import java.util.List;
 public class Order {
 
     @Id @GeneratedValue
-    @Column(name = "id")
-    private int id;
+    @Column(name = "oreder_id")
+    private int orderId;
 
     @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @JoinColumn(name = "account")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Account account;
+    @ManyToMany(mappedBy = "orders")
+    private List<Product> products = new ArrayList<Product>();
 
-    @Column(name = "productId")
-    private int productId;
+    public Order(Date date){
+        this.date = date;
+    };
 
-    @Column(name = "productQuantity")
-    private int productQuantity;
+    public Order() {
 
-    public Order(){};
+    }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }
