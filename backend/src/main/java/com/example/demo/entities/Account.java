@@ -24,7 +24,7 @@ public class Account {
     private String password;
 
     @Column(name = "orderss")
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "account")
     private List<Order> orders;
 
     public Account(String email, String name, String surname, String nickname, String password, List<Order> orders) {

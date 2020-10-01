@@ -17,6 +17,11 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
+    @Column(name = "account")
+    @ManyToOne
+    @JoinColumn(name = "email", nullable = false)
+    private Account account;
+
     @ManyToMany(mappedBy = "orders")
     private List<Product> products = new ArrayList<Product>();
 
@@ -24,9 +29,6 @@ public class Order {
         this.date = date;
     };
 
-    public Order() {
-
-    }
 
     public Date getDate() {
         return date;
@@ -34,5 +36,13 @@ public class Order {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
