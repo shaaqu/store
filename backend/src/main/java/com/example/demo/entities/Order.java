@@ -2,6 +2,7 @@ package com.example.demo.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -11,6 +12,10 @@ public class Order {
     @Id @GeneratedValue
     @Column(name = "id")
     private int id;
+
+    @Column(name = "date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
 
     @JoinColumn(name = "account")
     @ManyToOne(fetch = FetchType.LAZY)
