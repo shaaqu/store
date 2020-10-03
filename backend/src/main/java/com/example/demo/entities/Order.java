@@ -21,7 +21,7 @@ public class Order {
     @JoinColumn(name = "email", nullable = false)
     private Account account;
 
-    @ManyToMany(mappedBy = "products")
+    @ManyToMany(mappedBy = "orders")
     private List<Product> products = new ArrayList<Product>();
 
     public Order(Date date){

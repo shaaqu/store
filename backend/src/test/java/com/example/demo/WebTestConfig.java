@@ -17,8 +17,8 @@ public class WebTestConfig {
 
         Properties exceptionMappings = new Properties();
 
-        exceptionMappings.put("java.lang.Exception", "error/error");
         exceptionMappings.put("java.lang.RuntimeException", "error/error");
+        exceptionMappings.put("java.lang.Exception", "error/error");
 
         exceptionResolver.setExceptionMappings(exceptionMappings);
 
