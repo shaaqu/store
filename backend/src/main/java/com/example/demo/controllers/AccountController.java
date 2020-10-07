@@ -37,4 +37,5 @@ public class AccountController {
     public Account listAccount(@PathVariable String email) {
         return accountService.listAccount(email);
     }
+
 }

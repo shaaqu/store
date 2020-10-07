@@ -21,9 +21,9 @@ public class JsonFactory{
             case ACCOUNT:
                 return new JSONObject()
                         .put("email", "mail@test.com")
-                        .put("name", "Test")
+                        .put("name", "TestName")
                         .put("surname", "TestSurname")
-                        .put("nickname", "testnick")
+                        .put("nickname", "testNick")
                         .put("password", "psswd")
                         .toString();
             case ORDER:

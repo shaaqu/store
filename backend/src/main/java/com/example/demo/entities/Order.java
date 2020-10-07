@@ -24,9 +24,7 @@ public class Order {
     @ManyToMany(mappedBy = "orders")
     private List<Product> products = new ArrayList<Product>();
 
-    public Order(Date date){
-        this.date = date;
-    };
+    public Order(){};
 
 
     public Date getDate() {

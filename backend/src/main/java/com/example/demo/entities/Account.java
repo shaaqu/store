@@ -27,14 +27,7 @@ public class Account {
     @OneToMany(mappedBy = "account")
     private List<Order> orders;
 
-    public Account(String email, String name, String surname, String nickname, String password, List<Order> orders) {
-        this.email = email;
-        this.name = name;
-        this.surname = surname;
-        this.nickname = nickname;
-        this.password = password;
-        this.orders = orders;
-    }
+    public Account() {}
 
 
     public String getEmail() {

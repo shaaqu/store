@@ -31,12 +31,6 @@ public class Product {
 
     public Product(){};
 
-    public Product(String name, long price, int amount){
-        this.name = name;
-        this.price = price;
-        this.amount = amount;
-    }
-
     public String getName() {
         return name;
     }
