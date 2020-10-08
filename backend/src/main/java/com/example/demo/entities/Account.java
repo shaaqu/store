@@ -84,4 +84,12 @@ public class Account {
     public void addOrders(Order order) {
         this.orders.add(order);
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
