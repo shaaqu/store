@@ -1,8 +1,11 @@
 package com.example.demo.entities;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 import java.util.List;
 
+import com.example.demo.enums.Roles;
 @Entity
 @Table(name = "account")
 public class Account {
@@ -22,6 +25,10 @@ public class Account {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "role", nullable = false)
+    @ColumnDefault(Roles.ROLE_USER)
+    private String role;
 
     @Column(name = "orderss")
     @OneToMany(mappedBy = "account")
