@@ -10,4 +10,6 @@ public interface ProductRepository extends CrudRepository<Product, Integer>, Pag
     Product save(Product product);
 
     Iterable<Product> findAll();
+
+    Product findByProductId(Product product);
 }
