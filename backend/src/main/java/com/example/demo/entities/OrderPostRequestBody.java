@@ -7,4 +7,12 @@ public class OrderPostRequestBody {
 
     public OrderPostRequestBody() {
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
 }

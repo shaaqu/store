@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.Order;
+import com.example.demo.entities.OrderPostRequestBody;
 import com.example.demo.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,8 +26,8 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
-    public ResponseEntity<Order> create(@RequestParam("email") String email, @RequestParam("productName") String productName){
-        orderService.saveNewOrder(email, productName);
+    public ResponseEntity<Order> create(@RequestBody OrderPostRequestBody body){
+        orderService.saveNewOrder(body.getEmail(), body.getProductName());
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
