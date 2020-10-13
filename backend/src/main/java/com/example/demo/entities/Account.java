@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.util.List;
 
 import com.example.demo.enums.Roles;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
 @Entity
 @Table(name = "account")
 public class Account {
@@ -26,9 +28,9 @@ public class Account {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "role", nullable = false)
-    @ColumnDefault(Roles.ROLE_USER)
-    private String role;
+//
+//    @Column(name = "role", nullable = false)
+//    private String role = Roles.ROLE_USER;
 
     @Column(name = "orderss")
     @OneToMany(mappedBy = "account")
@@ -85,11 +87,11 @@ public class Account {
         this.orders.add(order);
     }
 
-    public String getRole() {
-        return role;
-    }
+//    public String getRole() {
+//        return role;
+//    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 }

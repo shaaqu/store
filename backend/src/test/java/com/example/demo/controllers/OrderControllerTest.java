@@ -11,8 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static com.example.demo.ItemRequestBuilderFactory.Items.ORDER_ITEM;
-import static com.example.demo.ItemRequestBuilderFactory.Items.PRODUCT_ITEM;
+import static com.example.demo.ItemRequestBuilderFactory.Items.*;
 import static com.example.demo.WebTestConfig.exceptionResolver;
 import static com.example.demo.WebTestConfig.fixedLocaleResolver;
 import static org.junit.jupiter.api.Assertions.*;
@@ -42,6 +41,13 @@ class OrderControllerTest {
 
     @Test
     public void postItemTest() throws Exception {
+
+        ItemRequestBuilder accountItemRequestBuilder = itemRequestBuilderFactory.createRequestBuilder(ACCOUNT_ITEM);
+        ItemRequestBuilder orderItemRequestBuilder = itemRequestBuilderFactory.createRequestBuilder(ORDER_ITEM);
+
+        accountItemRequestBuilder.postItem();
+        orderItemRequestBuilder.postItem();
+
         itemRequestBuilder.postItem().andExpect(
                 status().isCreated()
         );

@@ -23,7 +23,7 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
-    public ResponseEntity<Order> create(@RequestBody @Valid @NotNull Order order){
+    public ResponseEntity<Order> create(@RequestBody @Valid Order order){
         orderService.saveNewOrder(order);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
