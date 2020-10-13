@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import org.joda.time.DateTime;
 
 @Entity
 @Table(name = "orderss")
@@ -16,8 +16,8 @@ public class Order {
     private int orderId;
 
     @Column(name = "date")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date date;
+    @Temporal(TemporalType.TIMESTAMP)
+    private DateTime date;
 
     @ManyToOne
     @JoinColumn(name = "email", nullable = false)
@@ -29,11 +29,11 @@ public class Order {
     public Order(){};
 
 
-    public Date getDate() {
+    public DateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(DateTime date) {
         this.date = date;
     }
 
