@@ -11,5 +11,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer>, Pag
 
     Iterable<Product> findAll();
 
-    Product findByProductId(Product product);
+    Product findByProductId(int id);
+
+    Product findByName(String name);
 }

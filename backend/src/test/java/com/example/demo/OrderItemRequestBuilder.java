@@ -20,7 +20,6 @@ public class OrderItemRequestBuilder implements ItemRequestBuilder {
     }
 
     public ResultActions postItem() throws Exception {
-        System.out.println(jsonFactory(ORDER));
         return mockMvc.perform(post("/order")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonFactory(ORDER))

@@ -28,11 +28,8 @@ public class JsonFactory{
                         .toString();
             case ORDER:
                 return new JSONObject()
-                        .put("date", "2020-01-01 12:00:12")
-                        .put("account", "mail@test.com")
-                        .put("orders", "1")
-//                        .put("account", jsonFactory(JsonEnum.ACCOUNT))
-//                        .put("orders", jsonFactory(JsonEnum.PRODUCT))
+                        .put("email", "mail@test.com")
+                        .put("productName", "testProduct")
                         .toString();
             case PRODUCT:
                 return new JSONObject()

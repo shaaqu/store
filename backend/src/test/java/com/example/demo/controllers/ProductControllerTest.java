@@ -2,7 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.ItemRequestBuilder;
 import com.example.demo.ItemRequestBuilderFactory;
-import com.example.demo.services.AcountService;
+import com.example.demo.services.AccountService;
 import com.example.demo.services.ProductService;
 import org.json.JSONException;
 import org.junit.jupiter.api.BeforeEach;

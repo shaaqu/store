@@ -41,6 +41,10 @@ public class Order {
         return account;
     }
 
+    public void addProduct(Product product){
+        this.products.add(product);
+    }
+
     public void setAccount(Account account) {
         this.account = account;
     }

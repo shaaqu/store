@@ -4,7 +4,7 @@ import com.example.demo.AccountItemItemRequestBuilder;
 import com.example.demo.ItemRequestBuilder;
 import com.example.demo.ItemRequestBuilderFactory;
 import com.example.demo.JsonFactory;
-import com.example.demo.services.AcountService;
+import com.example.demo.services.AccountService;
 import org.json.JSONException;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Disabled;
@@ -28,12 +28,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class AccountControllerTest {
 
     private ItemRequestBuilder itemRequestBuilder;
-    private AcountService service;
+    private AccountService service;
     private ItemRequestBuilderFactory itemRequestBuilderFactory;
 
     @BeforeEach
     void configureSystemUnderTest() throws JSONException {
-        service = mock(AcountService.class);
+        service = mock(AccountService.class);
         AccountController accountController = new AccountController(service);
         MockMvc mockMvc = MockMvcBuilders
                 .standaloneSetup(accountController)

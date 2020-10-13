@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class AccountServiceImpl implements AcountService {
+public class AccountServiceImpl implements AccountService {
 
     @Autowired
     AccountRepository accountRepository;
@@ -23,7 +23,7 @@ public class AccountServiceImpl implements AcountService {
     }
 
     @Override
-    public Account listAccount(String email) {
+    public Account getAccount(String email) {
         return accountRepository.getAccountByEmail(email);
     }
 }

@@ -4,11 +4,11 @@ import com.example.demo.entities.Account;
 import org.springframework.stereotype.Service;
 
 
-public interface AcountService {
+public interface AccountService {
 
     Account saveNewAccount(Account account);
 
     Iterable<Account> listAllAccounts();
 
-    Account listAccount(String email);
+    Account getAccount(String email);
 }

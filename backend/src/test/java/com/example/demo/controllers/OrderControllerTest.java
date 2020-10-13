@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.ItemRequestBuilder;
 import com.example.demo.ItemRequestBuilderFactory;
+import com.example.demo.services.AccountService;
 import com.example.demo.services.OrderService;
 import com.example.demo.services.ProductService;
 import org.json.JSONException;
@@ -24,6 +25,7 @@ class OrderControllerTest {
     private ItemRequestBuilder itemRequestBuilder;
     private OrderService service;
     private ItemRequestBuilderFactory itemRequestBuilderFactory;
+    private AccountService accountService;
 
     @BeforeEach
     void configureSystemUnderTest() throws JSONException {
@@ -39,15 +41,13 @@ class OrderControllerTest {
 
     }
 
+    void postAccount() throws Exception {
+        accountService = mock(AccountService.class);
+        AccountController accountController = new AccountController(accountService);
+    }
+
     @Test
     public void postItemTest() throws Exception {
-
-        ItemRequestBuilder accountItemRequestBuilder = itemRequestBuilderFactory.createRequestBuilder(ACCOUNT_ITEM);
-        ItemRequestBuilder orderItemRequestBuilder = itemRequestBuilderFactory.createRequestBuilder(ORDER_ITEM);
-
-        accountItemRequestBuilder.postItem();
-        orderItemRequestBuilder.postItem();
-
         itemRequestBuilder.postItem().andExpect(
                 status().isCreated()
         );
