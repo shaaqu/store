@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 @Entity
@@ -16,7 +18,7 @@ public class Order {
     private int orderId;
 
     @Column(name = "date")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     private DateTime date;
 
     @ManyToOne

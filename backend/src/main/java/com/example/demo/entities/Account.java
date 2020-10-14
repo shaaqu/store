@@ -1,6 +1,6 @@
 package com.example.demo.entities;
 
-import org.hibernate.annotations.ColumnDefault;
+import lombok.Builder;
 
 import javax.persistence.*;
 import java.util.List;
@@ -38,6 +38,14 @@ public class Account {
 
     public Account() {}
 
+    @Builder
+    public Account(String email, String name, String surname, String nickname, String password, String role){
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.role = role;
+    }
 
     public String getEmail() {
         return email;
