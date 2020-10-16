@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountServiceImpl implements AccountService {
 
-    @Autowired
     AccountRepository accountRepository;
+
+    @Autowired
+    public AccountServiceImpl(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
 
     public Account saveNewAccount(Account account) {
         account.setRole(Roles.ROLE_USER);

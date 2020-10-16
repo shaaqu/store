@@ -18,7 +18,7 @@ public class Order {
     private int orderId;
 
     @Column(name = "date")
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+//    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     private DateTime date;
 
     @ManyToOne
