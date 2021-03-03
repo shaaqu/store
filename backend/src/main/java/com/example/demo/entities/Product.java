@@ -29,6 +29,10 @@ public class Product {
     )
     List<Order> orders = new ArrayList<Order>();
 
+    @ManyToMany(mappedBy = "cart")
+    private List<Cart> carts = new ArrayList<Cart>();
+
+
     public Product(){};
 
     public String getName() {
