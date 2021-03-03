@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 
 import javax.persistence.*;
@@ -36,15 +37,20 @@ public class Account {
     @OneToMany(mappedBy = "account")
     private List<Order> orders;
 
+    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn /*@JsonIgnore*/
+    private Cart cart;
+
     public Account() {}
 
     @Builder
-    public Account(String email, String name, String surname, String nickname, String password, String role){
+    public Account(String email, String name, String surname, String nickname, String password, String role, Cart cart){
         this.email = email;
         this.name = name;
         this.surname = surname;
         this.password = password;
         this.role = role;
+        this.cart = cart;
     }
 
     public String getEmail() {
@@ -101,5 +107,13 @@ public class Account {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }

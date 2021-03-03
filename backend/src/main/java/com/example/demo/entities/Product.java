@@ -29,7 +29,7 @@ public class Product {
     )
     List<Order> orders = new ArrayList<Order>();
 
-    @ManyToMany(mappedBy = "cart")
+    @ManyToMany(mappedBy = "products")
     private List<Cart> carts = new ArrayList<Cart>();
 
 

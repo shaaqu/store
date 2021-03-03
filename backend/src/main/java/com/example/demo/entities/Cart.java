@@ -12,6 +12,11 @@ public class Cart {
     @Column(name = "cartId")
     private String email;
 
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "email")
+    private Account account;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "cart_product",
@@ -22,12 +27,8 @@ public class Cart {
 
     public Cart() {}
 
-    public Cart(String email) {
-        this.email = email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public void addProducts(Product product) {
